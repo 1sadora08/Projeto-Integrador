@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif; /* Fonte mais legível */
+    background-color: #f7f7f7; /* Fundo cinza claro suave */
+    color: #333; /* Cor do texto escura */
+    margin: 0; /* Remove margem padrão do navegador */
+    padding: 20px;
+    text-align: center; /* Centraliza o conteúdo principal */
+}
+
+/* Estilo para o título principal */
+h1 {
+    color: #8b4513; /* Um tom de marrom, remetendo a pães/café */
+    border-bottom: 2px solid #8b4513; /* Linha sutil abaixo do título */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 2.5em; /* Título maior */
+}
+
+/* Estilo para o subtítulo */
+h2 {
+    color: #a0522d; /* Um marrom mais claro */
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+/* Estilizando a lista de produtos (vamos usar uma lista não ordenada) */
+.produtos-lista {
+    list-style-type: none; /* Remove os marcadores de lista padrão */
+    padding: 0;
+    max-width: 400px; /* Limita a largura da lista */
+    margin: 0 auto; /* Centraliza o bloco da lista */
+}
+
+/* Estilo para cada item da lista */
+.produtos-lista li {
+    background-color: #ffffff; /* Fundo branco para cada item */
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px; /* Cantos arredondados */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    text-align: left; /* Alinha o texto do item à esquerda */
+    border-left: 5px solid #ffcc66; /* Linha lateral amarela suave */
+}
+
+/* Estilo opcional para um hover (passar o mouse) */
+.produtos-lista li:hover {
+    background-color: #fffacd; /* Cor mais clara ao passar o mouse */
+    cursor: default; /* Mantém o cursor padrão */
+}
+
+/* ------------------------------------ */
+/* ESTILOS DO CONTAINER (O ELEMENTO PAI) */
+/* ------------------------------------ */
+.lista-produtos {
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    padding: 0;
+    margin: 30px auto; 
+    max-width: 1000px;
+}
+
+/* ------------------------------------ */
+/* ESTILOS DE CADA CARD DE PRODUTO */
+/* ------------------------------------ */
+.produto-card {
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; /* Borda arredondada do card */
+    padding: 15px; /* Aumentei um pouco o padding para dar mais espaço */
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s; 
+}
+
+.produto-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------ */
+/* ESTILOS DA IMAGEM DENTRO DO CARD (FOCO AQUI!) */
+/* ------------------------------------ */
+.produto-card img {
+    /* Define largura e altura fixas para todas as imagens */
+    width: 200px; /* Largura da imagem */
+    height: 150px; /* Altura da imagem */
+    
+    /* Garante que a imagem preencha o espaço sem distorcer, cortando se necessário */
+    object-fit: cover; 
+    
+    /* Remove espaço extra que alguns navegadores adicionam abaixo da imagem */
+    display: block; 
+    /* Centraliza a imagem horizontalmente dentro do card */
+    margin: 0 auto 10px auto; /* 0 topo, auto laterais (centraliza), 10px em baixo */
+    
+    /* Bordas levemente arredondadas para a imagem */
+    border-radius: 6px; /* Ajuste este valor para mais ou menos arredondamento */
+}
+
+/* ------------------------------------ */
+/* ESTILOS DO NOME DO PRODUTO */
+/* ------------------------------------ */
+.produto-card p {
+    font-weight: bold;
+    color: #444;
+    margin: 10px 0 0; /* Adiciona um pouco mais de espaço acima do texto */
+    font-size: 1.1em; /* Um pouco maior para destaque */
+}
+
+
+/* *** RESPONSIVIDADE (Para telas menores) *** */
+@media (max-width: 768px) {
+    .lista-produtos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .lista-produtos {
+        grid-template-columns: 1fr;
+    }
+    .produto-card img {
+        /* Ajusta o tamanho da imagem para telas menores se necessário */
+        width: 180px; 
+        height: 130px;
+    }
+}
+/* ------------------------------------ */
+/* ESTILOS DOS BOTÕES DE COMPRA */
+/* ------------------------------------ */
+
+.add-carrinho {
+    /* Layout */
+    display: block; /* Ocupa toda a largura do card */
+    width: 100%; 
+    padding: 10px;
+    margin-top: 15px;
+    
+    /* Cores e Aparência */
+    background-color: #a0522d; /* Marrom-claro (Sienna), combina com a padaria */
+    color: #ffffff; /* Texto branco */
+    border: none;
+    border-radius: 5px; /* Bordas levemente arredondadas */
+    cursor: pointer; /* Indica que o elemento é clicável */
+    
+    /* Tipografia */
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    letter-spacing: 0.5px; /* Espaçamento entre letras */
+
+    /* Transição suave para o efeito hover */
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.add-carrinho:hover {
+    background-color: #8b4513; /* Marrom mais escuro (SaddleBrown) */
+    /* Empurra o botão levemente para baixo para dar feedback ao usuário */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito ao clicar (Active) */
+.add-carrinho:active {
+    background-color: #694b29; /* Marrom ainda mais escuro */
+    /* Volta o botão para a posição original (efeito "apertar") */
+    transform: translateY(0); 
+    box-shadow: none;
+}
